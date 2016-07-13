@@ -1,0 +1,32 @@
+<div>
+  <h1>Users</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |user|}}
+      <tr class='user'>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>
+          {{#link-to 'users.edit' user.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteUser' user}}>Delete</button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{#link-to 'users.new'}}<a href="" class="btn btn-info" role="button">Create User</a>{{/link-to}}
+{{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+{{/if}}

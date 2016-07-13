@@ -18,13 +18,18 @@
         <td>{{ticket.name}}</td>
         <td>{{ticket.description}}</td>
         <td>{{ticket.owner}}</td>
-        <td>{{ticket.current_status}}</td>
-        <td></td>
+        <td>{{ticket.curstatus}}</td>
+        <td>
+          {{#link-to 'tickets.edit' ticket.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteTicket' ticket}}>Delete</button>
+        </td>
       </tr>
     {{/each}}
   </tbody>
 </table>
 
-<a href="#" class="btn btn-info" role="button">Create Ticket</a>
-
+{{#link-to 'tickets.new'}}<a href="" class="btn btn-info" role="button">Create Ticket</a>{{/link-to}}
+{{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+{{/if}}
 

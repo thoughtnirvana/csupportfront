@@ -1,0 +1,8 @@
+{{! app/templates/login.hbs }}
+<form {{action 'authenticate' on='submit'}}>
+  <label for="identification">Email</label>
+  {{input id='identification' placeholder='Enter Email' value=identification}}
+  <label for="password">Password</label>
+  {{input id='password' placeholder='Enter Password' type='password' value=password}}
+  <button type="submit">Login</button>
+</form>
