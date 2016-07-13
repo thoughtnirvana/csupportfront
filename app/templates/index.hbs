@@ -2,7 +2,7 @@
   <h1>Tickets</h1>
 </div>
 
-<table class="table table-bordered table-striped">
+<table id="tickets-table" class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,6 +29,8 @@
 </table>
 
 {{#link-to 'tickets.new'}}<a href="" class="btn btn-info" role="button">Create Ticket</a>{{/link-to}}
+<button class="btn btn-info" role="button" {{action 'dlpdf' ticket}}>Download PDF</button>
+
 {{#if errorMessage}}
     <p>{{errorMessage}}</p>
 {{/if}}

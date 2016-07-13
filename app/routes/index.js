@@ -16,6 +16,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       if (confirmation) {
         ticket.destroyRecord();
       }
+    },
+    dlpdf() {
+      var doc = new jsPDF('p', 'pt');
+      var elem = document.getElementById("tickets-table");
+      var res = doc.autoTableHtmlToJson(elem);
+      doc.autoTable(res.columns, res.data);
+      doc.save("table.pdf");
     }
   }
 });
