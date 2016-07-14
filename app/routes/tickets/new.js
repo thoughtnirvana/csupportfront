@@ -13,8 +13,6 @@ export default Ember.Route.extend({
       }).then(() => this.transitionTo('/'));
     },
     willTransition() {
-      // rollbackAttributes() removes the record from the store
-      // if the model 'isNew'
       this.controller.get('model').rollbackAttributes();
     }
   }
